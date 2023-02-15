@@ -1,0 +1,43 @@
+*
+{
+    margin:0;
+    padding:0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navlist
+{
+    list-style-type: none;
+    margin: 0;
+    padding:0;
+    overflow:hidden;
+    background-color: #333;
+}
+.navlist li
+{
+    float:left;
+}
+li a
+{
+    align-items: center;
+    display:block;
+    color: white;
+    text-decoration: none;
+   
+    padding: 14px 16px;
+    
+}
+li a:hover
+{
+    background-color: #111;
+}
+.title
+{
+    display:block;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 20px;
+    font-weight: bolder;
+}

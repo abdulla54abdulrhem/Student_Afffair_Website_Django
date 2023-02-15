@@ -1,0 +1,106 @@
+*
+{
+    margin:0;
+    padding:0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navlist
+{
+    list-style-type: none;
+    margin: 0;
+    padding:0;
+    overflow:hidden;
+    background-color: #333;
+}
+.navlist li
+{
+    float:left;
+}
+li a
+{
+    align-items: center;
+    display:block;
+    color: white;
+    text-decoration: none;
+   
+    padding: 14px 16px;
+    
+}
+li a:hover
+{
+    background-color: #111;
+}
+.title
+{
+    display:block;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 20px;
+    font-weight: bolder;
+}
+.Complaints
+{
+    margin: auto;
+    width:50%;
+    border: 1px solid;
+    padding: 10px;
+    overflow: hidden;
+}
+.studata
+{
+    list-style-type:none;
+    margin: 0;
+    padding:0;
+    width: 200px;
+}
+.studata li
+{
+    display: block;
+    padding: 20px;
+    
+}
+.form
+{
+    margin: 5px;
+    padding-top: 10px;
+}
+input
+{
+   
+    border-radius: 25px;
+    font-size: 15px;
+    text-align: center;
+    
+}
+
+#id
+{
+    float: left;
+}
+textarea
+{
+    float: right;
+    width: 70%;
+    border-radius: 15px;
+    font-size: 15px;
+    text-align: center;
+}
+button
+{
+    width: 120px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 50px;
+    border-radius: 20px;
+    background-color: #ff3333;
+    border:none;
+    color:white;
+}
+button:hover
+{
+    background-color:#ff6666 ;
+}

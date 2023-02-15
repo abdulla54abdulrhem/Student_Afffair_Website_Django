@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+     <head>
+         <meta charset = "UTF-8" />
+         <title>add student data</title>
+         {% load static %}
+         <link rel="stylesheet" href="{% static 'css/addstudent.css' %}">
+         <script src="{% static 'js/add_Student.js' %}"></script>
+     </head>
+
+
+     <body>
+
+
+      <!--Nav Bar-->
+      <div class="topnav">
+        <ul class="navlist">
+          <li class="title">Student Affair Website</li>
+          <li><a href="{% url 'add' %}" id="nav">Add Student</a></li>
+                  <li><a href="{% url 'search' %}" id="nav">Search</a></li>
+                  <li><a href="{% url 'all' %}" id="nav">All Students</a></li>
+                  <li> <a href="{% url 'CompInq' %}" id="nav">Complaints and Inqueries</a></li>
+         </ul>
+    </div>
+
+
+    <div class="center">
+
+      <form action="" method="POST" >
+       {% csrf_token %}
+        <label><b>Name :</b></label>
+        <input type="text" name = "name" id="Name" required>
+        <br><br>
+
+        <!-- <label><b> Id :</b></label> -->
+        <!-- <input type="tel" name = "id"required> -->
+        <!-- <br><br> -->
+
+        <label><b>Date of birth :</b> </label>
+        <input type="date" name = "DateOfbirth"required> 
+        <br><br>
+
+        <label><b>GPA :</b></label>
+        <input  type=number step=0.01  id="GPA" name="gpa" required>
+        <br><br>
+
+  
+    <label><b>Gender :</b></label>
+    <input type="radio" name="gender" value="Male">
+    <label>Male</label>
+    <br>
+    <div class="female">
+    <input type="radio" name="gender" value="Female">
+    <label>Female</label>
+    </div>
+  
+    <br>
+
+    <label><b>Level : </b> </label>
+    <input type="radio" name="level" value="1">
+    <label>1</label><br>
+
+    <div class="aa">
+
+    <input type="radio" name="level" value="2">
+    <label>2</label><br>
+    <input type="radio" name="level" value="3">
+    <label>3</label><br>
+    <input type="radio" name="level" value="4">
+    <label>4</label><br>
+
+    </div>
+
+
+    <br>
+
+    <label><b>Status :</b></label>
+    <input type="radio"  name="status" value="True" disabled>
+    <label>active</label><br>
+
+    <div class="inactive">
+
+    <input type="radio"  name="status" value="False" disabled>
+    <label>inactive</label> 
+
+     </div>
+    <br>
+
+   
+    <label><b>Department : </b></label>
+    <select id="department" disabled>
+      <option value="CS" >CS</option>
+      <option value="AI">AI</option>
+      <option value="IT">IT</option>
+      <option value="IS">IS</option>
+      <option value="DS">DS</option>
+     </select>
+
+     <br><br>
+
+    <label><b>Email :</b></label>
+    <input type="email" name="email">
+
+    <br><br>
+
+    <label><b>Mobile Number : </b></label>
+    <input type="tel" name="mob">
+
+    
+
+    <br><br><br><br><br>
+    
+    <button  type = "submit"  onclick="validate();" value="Validate Name">Add</button>
+    
+      </form>
+    </div>
+     </body>
+</html>
+
+

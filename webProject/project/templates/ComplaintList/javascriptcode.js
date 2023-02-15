@@ -1,0 +1,35 @@
+function add(){
+const container=document.getElementById('container');
+const complaint=document.createElement('div');
+complaint.setAttribute('class','Complaints');
+const theUl=document.createElement('ul');
+theUl.setAttribute('class','studata');
+const Li1=document.createElement('li');
+const input1=document.createElement('input');
+input1.setAttribute('type','text');
+input1.setAttribute('disabled','');
+input1.setAttribute('id','id');
+const Li2=document.createElement('li');
+const input2=document.createElement('input');
+input2.setAttribute('type','text');
+input2.setAttribute('disabled','');
+input2.setAttribute('id','comptype');
+const box=document.createElement('textarea');
+box.setAttribute('id','txt');
+box.setAttribute('rows','10');
+box.setAttribute('cols','70');
+box.setAttribute('disabled','');
+var id=localStorage.getItem("studentId");
+input1.value=id;
+var choice=localStorage.getItem("checked");
+input2.value=choice;
+var comp=localStorage.getItem("comp");
+box.value=comp;
+Li1.appendChild(input1);
+Li2.appendChild(input2);
+theUl.appendChild(Li1);
+theUl.appendChild(Li2);
+complaint.appendChild(theUl);
+complaint.appendChild(box);
+container.appendChild(complaint);
+}

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Student's Info</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static '/css/edit.css' %}">
+<!-- Add this in your <head> tag -->
+  <link
+  rel="stylesheet"
+  href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+  integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
+  crossorigin="anonymous"
+/>
+</head>
+<body>
+
+
+
+      <div class="topnav">
+            <ul class="navlist">
+                  <li class="title">Student Affair Website</li>
+                  <li><a href="{% url 'add' %}" id="nav">Add Student</a></li>
+                  <li><a href="{% url 'search' %}" id="nav">Search</a></li>
+                  <li><a href="{% url 'all' %}" id="nav">All Students</a></li>
+                  <li> <a href="{% url 'CompInq' %}" id="nav">Complaints and Inqueries</a></li>
+            </ul>
+        </div>
+<div class="container" >
+
+  <form style="text-align: center; border-radius: 10ch;" action="" method="POST" >
+      {% csrf_token %}
+    <div class="input-icons">
+
+      <!-- first name  -->
+
+    <label for="fname"><strong>Name:</strong></label><br>
+    
+  <i class="fa fa-user"></i>
+  <input class="input-field" type="text" name="name" placeholder="Enter first name" value="{{x.name}}">
+    
+    </div>
+    
+
+     
+           <!--  email  -->
+
+     <div class="input-icons" >
+     <br><label for="email"><strong>E-mail:</strong></label><br>
+     
+     <i class="fa fa-envelope"></i> <input class="input-field" type="email" name="email" placeholder="Enter email" value="{{x.email}}">
+     
+     </div>
+     <br>
+     <br>
+          <!-- date  -->
+
+     <label for="Dob"><strong>Date of birth:</strong></label><br>
+     <input class="input-field" type="date" id="Dob" name="birthdate" value='{{x.birth|date:"Y-m-d" }}' >
+   
+     <br>
+     <br>
+     <br>
+           <!-- number  -->
+
+     <div class="input-icons">
+    <br> <label for="number"><strong>Mobile Number:</strong></label><br>
+    
+     <i class="fa fa-mobile" ></i>
+
+     <br> <input class="input-field" type="tel" id="number" name="number" placeholder="Enter mobile number" value="{{x.mobNum}}">
+     
+     </div>
+     <br> <br>
+           <!-- department  -->
+           <label for="department"><strong>GPA:</strong></label><br>
+           <br><input class="input-field" type="number" step="0.01" name="gpa" value="{{x.gpa}}">
+
+     <br><br>
+     <label for="department"><strong>Department:</strong></label><br>
+     <br><input class="input-field" type="text" name="department" value="{{x.department}}" readonly>
+     <!-- "{{x.department}}" -->
+     <br> <br>
+           <!-- ID  -->
+
+           <div class="input-icons">
+     <label for="id"><strong>ID:</strong></label><br>
+     <i class="fa fa-address-card"></i>
+     <br><input class="input-field" type="number" name="id"  value="{{x.id}}" readonly>
+           </div>
+     <br> <br>
+
+           <!-- gender  -->
+
+     <label for="gender"><strong>Gender:</strong></label><br>
+     {% if x.gender == 'Male' %}
+      <input type="radio" id="male" name="gender" value="Male" checked>
+      <label for="male">Male</label>
+      <input type="radio" id="female" name="gender" value="Female" >
+      <label for="female">Female</label>
+      {% else %}
+      <input type="radio" id="male" name="gender" value="Male">
+      <label for="male">Male</label>
+      <input type="radio" id="female" name="gender" value="Female" checked>
+      <label for="female">Female</label>
+      {% endif %}
+    <br>
+      <br>
+     <br>
+           <!-- level -->
+
+     <label for="Level"><strong>Level:</strong></label><br>
+     {% if x.level == 1 %}
+      <input type="radio" id="one" name="level" value="1" checked>
+      <label for="one">1</label>
+      <input type="radio" id="two" name="level" value="2" >
+      <label for="two">2</label>
+      <input type="radio" id="three" name="level" value="3" >
+      <label for="three">3</label>
+      <input type="radio" id="four" name="level" value="4">
+      <label for="four">4</label>
+      {% elif x.level == 2 %}
+      <input type="radio" id="one" name="level" value="1">
+      <label for="one">1</label>
+      <input type="radio" id="two" name="level" value="2" checked>
+      <label for="two">2</label>
+      <input type="radio" id="three" name="level" value="3" >
+      <label for="three">3</label>
+      <input type="radio" id="four" name="level" value="4">
+      <label for="four">4</label>
+      {% elif x.level == 3 %}
+      <input type="radio" id="one" name="level" value="1">
+      <label for="one">1</label>
+      <input type="radio" id="two" name="level" value="2">
+      <label for="two">2</label>
+      <input type="radio" id="three" name="level" value="3" checked>
+      <label for="three">3</label>
+      <input type="radio" id="four" name="level" value="4">
+      <label for="four">4</label>
+      {% elif x.level == 4 %}
+      <input type="radio" id="one" name="level" value="1">
+      <label for="one">1</label>
+      <input type="radio" id="two" name="level" value="2">
+      <label for="two">2</label>
+      <input type="radio" id="three" name="level" value="3" >
+      <label for="three">3</label>
+      <input type="radio" id="four" name="level" value="4" checked>
+      <label for="four">4</label>
+      {% endif %}
+    <br>
+      <br>
+      <br>
+         <!-- status  -->
+
+      <label for="status"><strong>Status:</strong></label><br>
+      {% if x.active == True %}
+      <input type="radio" id="active" name="activation" value=True checked>
+      <label for="active">Active</label>
+      <input type="radio" id="inactive" name="activation" value=False >
+      <label for="inactive">Inactive</label>
+      {% else %}
+      <input type="radio" id="active" name="activation"value=True >
+      <label for="active">Active</label>
+      <input type="radio" id="inactive" name="activation"value=False checked>
+      <label for="inactive">Inactive</label>
+      {% endif %}
+      <br>
+      <br><br>
+            <!-- buttons -->
+
+            <button type="submit" onclick="confirmation(); " name="click" value="delete">Delete</button>
+            <button type="submit" name="click" value="update">Submit</button>
+  <br>
+  <br>
+   </form>
+   </div>
+</div>
+<script src="{% static '/js/edit.js' %}">
+ 
+</script>
+</body>
+</html>

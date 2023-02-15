@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Complaints and Inqueries</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/compinq.css' %}">
+        <!-- <script src="javaScriptCode.js"></script> -->
+    </head>
+    
+    <body>
+        
+                <div class="topnav">
+                    <ul>
+                        <li class="title">Student Affair Website</li>
+                        <li><a href="{% url 'add' %}" id="nav">Add Student</a></li>
+                  <li><a href="{% url 'search' %}" id="nav">Search</a></li>
+                  <li><a href="{% url 'all' %}" id="nav">All Students</a></li>
+                  <li> <a href="{% url 'CompInq' %}" id="nav">Complaints and Inqueries</a></li>
+                    </ul>
+                </div>
+            
+        <div class="theform">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <p class="stuid">Student ID: </p>
+                <input type="text" placeholder="Enter your ID here" name="sid" id="SID"><br>
+                <div id="checker">
+                        <label>Compalint</label>
+                        <input type="radio" value ="Complaint"name="a">
+                        
+                        <label>Inquery</label>
+                        <input type="radio" value ="Inquery"name="a">
+                </div>
+                <br>
+                <textarea rows="10" cols="70" placeholder="Enter your Complaint/Inquery Here" name="content" id="complaint"></textarea>  
+                    <br>
+                <p><button type="submit">submit</button></p>
+
+                
+
+            </form>
+            <p><a href="{% url 'CompList' %}"><button>Show All complaints</button></a></p>
+        </div>
+
+    </body>
+</html>

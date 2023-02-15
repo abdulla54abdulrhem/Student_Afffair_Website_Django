@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>    
+    <title>Search</title>
+    <meta charset="utf-8"/>
+    {% load static %}
+    <link rel="stylesheet" href= "{% static 'css/search.css' %}"> 
+  </head>
+  <body>
+    <div class="topnav">
+      <ul class="navlist">
+      <li class="title">Student Affair Website</li>
+      <li><a href="{% url 'add' %}" id="nav">Add Student</a></li>
+      <li><a href="{% url 'search' %}" id="nav">Search</a></li>
+      <li><a href="{% url 'all' %}" id="nav">All Students</a></li>
+      <li> <a href="{% url 'CompInq' %}" id="nav">Complaints and Inqueries</a></li>
+      </ul>
+  </div>
+  <div class="Container">
+        <h1 class="header">Search<h1>
+        <form action="" method="POST">
+          {% csrf_token %}
+          <label >
+            <input type="search" name="name" placeholder="Name" value=""/>
+          </label>
+          <p>
+          <input type="submit" value="search" class="Search" />
+        </p>
+        </form>
+      </div>
+</body>
+</html>

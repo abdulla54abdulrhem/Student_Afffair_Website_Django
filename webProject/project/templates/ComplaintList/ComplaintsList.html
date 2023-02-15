@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Complaints and Inqueries</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/compinq.css' %}">
+    </head>
+    
+    <body>
+        
+                <div class="topnav">
+                    <ul class="navlist">
+                        <li class="title">Student Affair Website</li>
+                        <li><a href="{% url 'add' %}" id="nav">Add Student</a></li>
+                        <li><a href="{% url 'search' %}" id="nav">Search</a></li>
+                        <li><a href="{% url 'all' %}" id="nav">All Students</a></li>
+                        <li> <a href="{% url 'CompInq' %}" id="nav">Complaints and Inqueries</a></li>
+                    </ul>
+                </div>
+            <div class="complaints">
+                {% for i in x %}
+                <div class="theform">
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <p class="stuid">Student ID: </p>
+                        <input type="text" placeholder="Enter your ID here" name="sid" id="SID" value="{{i.stuID}}" disabled><br>
+                        <div id="checker">
+                                {% if i.type == 'Inquery' %}
+                                <label>Compalint</label>
+                                <input type="radio" value ="Complaint"name="a"  disabled>
+                                
+                                <label>Inquery</label>
+                                <input type="radio" value ="Inquery"name="a" checked disabled>
+                                {% else %}
+                                <label>Compalint</label>
+                                <input type="radio" value ="Complaint"name="a"  checked disabled>
+                                
+                                <label>Inquery</label>
+                                <input type="radio" value ="Inquery"name="a" disabled>
+                                {% endif %}
+                        </div>
+                        <br>
+                        <textarea rows="10" cols="70" placeholder="Enter your Complaint/Inquery Here" name="content" id="complaint" disabled>{{i.content}}</textarea>  
+                            <br>
+
+                    </form>
+                {% endfor %}
+                    
+        </div>
+        <!-- <script src="javascriptcode.js"></script> -->
+        <!-- <button type="submit"  onclick="add();">Refresh</button> -->
+    </body>
+</html>

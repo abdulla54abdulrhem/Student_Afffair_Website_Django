@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        {% load static %}
+        <link rel="stylesheet" href="{% static '/css/allstudents.css' %}">
+        <script src="{% static '/js/allstudents.js' %}"></script>
+
+        <title>All Students Page</title>
+    </head>
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <body>
+        <div class="topnav">
+            <ul class="navlist">
+            <li class="title">Student Affair Website</li>
+            <li><a href="{% url 'add' %}" id="nav">Add Student</a></li>
+                  <li><a href="{% url 'search' %}" id="nav">Search</a></li>
+                  <li><a href="{% url 'all' %}" id="nav">All Students</a></li>
+                  <li> <a href="{% url 'CompInq' %}" id="nav">Complaints and Inqueries</a></li>
+            </ul>
+        </div>
+         <form style="text-align: center;">
+        <div class="container" >
+
+
+    
+   <h2>Active and Inactive Students Informations</h2>
+    <table class="center" border="1">
+    
+        <thead>
+           
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Level</th>
+                <th>Department</th>
+                <th>Status</th>
+                <th>Edit Info</th>
+                <th>Select Department</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for i in x %}
+        
+        <form action="" method="POST">
+            {% csrf_token %}
+        <tr>
+            <td><input type="number" name="TheId" value="{{i.id}}" readonly ></td>
+            <td>{{i.name}}</td>
+            <td>{{i.level}}</td>
+            <td >{{i.department}}</td>
+            {% if i.active == True %}
+            <td><button type="submit"  name="buttonn" value="ToFalse">Active</button></td>
+            {% else %}
+            <td><button type="submit"  name="buttonn" value="ToTrue">Inactive</button></td>
+            {% endif %}
+            <td><button type="submit" onclick="myFunction();" name="buttonn" value="GoEdit">Edit</button></td>
+            <td><button type="submit" name="buttonn" value="GoSelect" onclick="myFunction();">Select</button></td>
+        </tr>
+        </form>
+        {% endfor %}
+      
+        </tbody>
+    </table>
+    
+</body>
+</html>
